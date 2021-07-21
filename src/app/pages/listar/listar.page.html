@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Busqueda</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-item>
+  <ion-label position="floating">Busqueda</ion-label>
+  <ion-input [(ngModel)]="busqueda"></ion-input>
+  
+</ion-item>
+
+<ion-button expand="full" (click)="buscar()">Buscar</ion-button>
+
+<ion-content>
+  <ion-grid class="ion-margin">
+    <ion-row>
+      <ion-col>Nombre</ion-col>
+      <ion-col>Categoria</ion-col>
+      <ion-col>Color</ion-col>
+      <ion-col>Precio</ion-col>
+    </ion-row>
+    <ion-row *ngFor="let ele of electrodomesticos | async">
+      <ion-col>{{ ele.nombre }}</ion-col>
+      <ion-col>{{ ele.categoria }}</ion-col>
+      <ion-col>{{ ele.color }}</ion-col>
+      <ion-col>{{ ele.precio }}</ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
